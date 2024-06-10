@@ -1,11 +1,24 @@
 import React from "react";
 import styles from "./HeroStyles.module.css";
-import heroImg from "../../assets/Design uten navn.png";
-import themeIcon from "../../assets/sun.svg";
+import heroImg from "../../assets/avataaars.png";
+import sun from "../../assets/sun.svg";
+import moon from "../../assets/moon.svg";
 import linkedinImg from "../../assets/linkedin-light.svg";
 import GithubImg from "../../assets/github-light.svg";
+import linkedinDark from "../../assets/linkedin-dark.svg";
+import linkedinLight from "../../assets/linkedin-light.svg"
+import githubLight from "../../assets/github-light.svg";
+import githubDark from "../../assets/github-dark.svg"
+import Resume from "../../assets/Yue_Resume.pdf";
+import { useTheme } from '../../common/ThemeContext';
 
 function Hero() {
+
+   const  { theme, toggleTheme } = useTheme();
+
+    const themeIcon = theme === 'light' ? sun : moon
+    const linkedinImg = theme === 'light' ? linkedinLight : linkedinDark
+    const GithubImg = theme === 'light' ? githubLight : githubDark
   return (
     <section id="hero" className={styles.container}>
       <div className={styles.colorModeContainer}>
@@ -14,6 +27,7 @@ function Hero() {
           className={styles.colorMode}
           src={themeIcon}
           alt="change the theme"
+          onClick={toggleTheme}
         />
       </div>
       <div className={styles.info}>
@@ -30,11 +44,16 @@ function Hero() {
             <img src={linkedinImg} alt="LinkedIn" />
           </a>
         </span>
-        <p>
-          With a passion for developing mordern web apps! And Otaku saves the
-          world!
+        <p className={styles.description}>
+          With a passion for developing mordern web apps! 
         </p>
-        <a href={linkedinImg} download>
+        <p className={styles.description}>
+            And the website is still under construction!
+        </p>
+        <p className={styles.description}>
+           More to come!
+        </p>
+        <a href={Resume} download>
             <button className="hover">Download Resume</button>
         </a>
       </div>
