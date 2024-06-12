@@ -3,12 +3,12 @@ import styles from "./HeroStyles.module.css";
 import heroImg from "../../assets/avataaars.png";
 import sun from "../../assets/sun.svg";
 import moon from "../../assets/moon.svg";
-import linkedinImg from "../../assets/linkedin-light.svg";
-import GithubImg from "../../assets/github-light.svg";
 import linkedinDark from "../../assets/linkedin-dark.svg";
 import linkedinLight from "../../assets/linkedin-light.svg"
 import githubLight from "../../assets/github-light.svg";
 import githubDark from "../../assets/github-dark.svg"
+import avatar1 from "../../assets/avataaars.png"
+import avatar2 from "../../assets/avataaars2.png"
 import Resume from "../../assets/Yue_Resume.pdf";
 import { useTheme } from '../../common/ThemeContext';
 
@@ -19,10 +19,11 @@ function Hero() {
     const themeIcon = theme === 'light' ? sun : moon
     const linkedinImg = theme === 'light' ? linkedinLight : linkedinDark
     const GithubImg = theme === 'light' ? githubLight : githubDark
+    const AvatarImg = theme ==='light' ? avatar1 : avatar2
   return (
     <section id="hero" className={styles.container}>
       <div className={styles.colorModeContainer}>
-        <img className={styles.hero} src={heroImg} alt="profile0-image" />
+        <img className={styles.hero} src={AvatarImg} alt="profile0-image" />
         <img
           className={styles.colorMode}
           src={themeIcon}
