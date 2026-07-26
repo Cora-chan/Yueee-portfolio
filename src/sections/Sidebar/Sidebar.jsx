@@ -13,8 +13,8 @@ const NAV_ITEMS = [
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "experience", label: "Experience" },
-  { id: "contact", label: "Contact" },
-  { id: "footer", label: "Footer" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" }
 ];
 
 function Sidebar() {
@@ -49,7 +49,7 @@ function Sidebar() {
     <header className={styles.sidebar}>
       <div>
         <h1>Yue Kang</h1>
-        <h2>Frontend Developer</h2>
+        <h2>Front-end Developer</h2>
         <p className={styles.description}>
           With a passion for developing modern web apps!
         </p>

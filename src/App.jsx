@@ -1,11 +1,9 @@
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Spotlight from './common/Spotlight'
 import Sidebar from './sections/Sidebar/Sidebar'
-import Hero from './sections/Hero/Hero'
-import Skills from './sections/Skills/Skills'
-import Experience from './sections/Experience/Experience'
-import Contact from './sections/Contact/Contact'
-import Footer from './sections/Footer/Footer'
+import HomePage from './pages/HomePage'
+import Archive from './pages/Archive'
 
 function App() {
 
@@ -15,11 +13,10 @@ function App() {
       <div className="layout">
         <Sidebar />
         <main className="content">
-          <Hero />
-          <Skills />
-          <Experience />
-          <Contact />
-          <Footer />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/archive" element={<Archive />} />
+          </Routes>
         </main>
       </div>
     </div>
