@@ -1,0 +1,133 @@
+.sidebar h1 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: rgb(226 232 240);
+}
+
+.sidebar h2 {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: rgb(226 232 240);
+}
+
+.description {
+    margin-top: 16px;
+    max-width: 320px;
+    line-height: 1.5;
+}
+
+.nav {
+    display: none;
+}
+
+.nav ul {
+    margin: 64px 0 0;
+    padding: 0;
+    list-style: none;
+    width: max-content;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    text-decoration: none;
+}
+
+.navIndicator {
+    margin-right: 16px;
+    height: 1px;
+    width: 32px;
+    background-color: rgb(71 85 105);
+    transition: all 150ms ease-in-out;
+}
+
+.navText {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgb(100 116 139);
+    transition: color 150ms ease-in-out;
+}
+
+.navItem:hover .navIndicator,
+.navItem:focus-visible .navIndicator,
+.navItem.active .navIndicator {
+    width: 64px;
+    background-color: rgb(226 232 240);
+}
+
+.navItem:hover .navText,
+.navItem:focus-visible .navText,
+.navItem.active .navText {
+    color: rgb(226 232 240);
+}
+
+.bottom {
+    margin-top: 40px;
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    img {
+        width: 28px;
+    }
+}
+
+.colorMode:hover {
+    cursor: pointer;
+}
+
+.bottom button {
+    margin-top: 24px;
+    background-color: var(--btn-color);
+    color: var(--btn-text-color);
+    border: none;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 260px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.bottom button:hover {
+    transform: scale(1.05);
+}
+
+@media (width >= 640px) {
+    .sidebar h1 {
+        font-size: 48px;
+    }
+
+    .sidebar h2 {
+        font-size: 20px;
+    }
+}
+
+@media (width >= 1024px) {
+    .sidebar {
+        position: sticky;
+        top: 0;
+        display: flex;
+        max-height: 100vh;
+        overflow-y: auto;
+        box-sizing: border-box;
+        width: 48%;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 96px 0;
+    }
+
+    .nav {
+        display: block;
+    }
+}

@@ -1,0 +1,154 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 0;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(226 232 240);
+    margin: 0 0 48px;
+}
+
+.kicker {
+    font-family: 'Roboto Mono', monospace;
+    color: rgb(29 78 216);
+    margin-right: 8px;
+}
+
+.headingLine {
+    display: none;
+    margin-left: 16px;
+    width: 100%;
+    max-width: 300px;
+    height: 1px;
+    background-color: rgb(51 65 85);
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tabList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.tab {
+    padding: 8px 20px;
+    text-align: left;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 18px;
+    background: transparent;
+    border: 1px solid rgb(51 65 85);
+    border-radius: 6px;
+    color: rgb(148 163 184);
+    cursor: pointer;
+    transition: color 200ms ease-in-out, background-color 200ms ease-in-out, border-color 200ms ease-in-out;
+}
+
+.tab:hover {
+    color: rgb(29 78 216);
+}
+
+.activeTab {
+    background-color: rgb(29 78 216);
+    border-color: rgb(29 78 216);
+    color: rgb(15 23 42);
+    font-weight: 600;
+}
+
+.panel {
+    outline: none;
+}
+
+.panelHeader {
+    margin-bottom: 8px;
+}
+
+.role {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(226 232 240);
+    margin: 0 0 8px;
+}
+
+.company {
+    color: rgb(29 78 216);
+}
+
+.period {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    color: rgb(148 163 184);
+    margin: 0;
+}
+
+.bulletList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bullet {
+    position: relative;
+    padding-left: 24px;
+    color: rgb(148 163 184);
+    line-height: 1.5;
+}
+
+.bullet::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: rgb(29 78 216);
+}
+
+@media (width >= 768px) {
+    .headingLine {
+        display: block;
+    }
+
+    .layout {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 32px;
+    }
+
+    .tabList {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 0;
+        border-left: 1px solid rgb(51 65 85);
+    }
+
+    .tab {
+        border: none;
+        border-left: 2px solid transparent;
+        border-radius: 0;
+        margin-left: -1px;
+        background: transparent;
+        color: rgb(148 163 184);
+    }
+
+    .tab:hover {
+        color: rgb(29 78 216);
+        background-color: rgb(29 78 216 / 0.05);
+    }
+
+    .activeTab {
+        background: transparent;
+        border-left-color: rgb(29 78 216);
+        color: rgb(29 78 216);
+        font-weight: 600;
+    }
+}

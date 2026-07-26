@@ -1,51 +1,49 @@
 import styles from './SkillsStyles.module.css'
-import checkMarkIcondark from '../../assets/checkmark-dark.svg'
-import checkMarkIconlight from '../../assets/checkmark-light.svg'
-import SkillList from '../../common/SkillList';
-import { useTheme } from '../../common/ThemeContext';
+
+const SKILL_ROWS = [
+  {
+    duration: '22000ms',
+    direction: 'reverse',
+    skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Node.js', 'React', 'Vue', 'Liquid'],
+  },
+  {
+    duration: '26000ms',
+    direction: 'normal',
+    skills: ['Tailwind CSS', 'Storybook', 'jQuery', 'Bootstrap', 'Redux', 'Webpack', 'Git', 'Yarn'],
+  },
+  {
+    duration: '18000ms',
+    direction: 'reverse',
+    skills: ['Episerver (Optimizely)', 'Sitecore', '.Net', '.Net Core', 'C#', 'SQL', 'SQL Server'],
+  },
+]
 
 function Skills() {
-    const  { theme } = useTheme();
-    const checkMarkIcon = theme === 'light' ? checkMarkIconlight : checkMarkIcondark;
   return (
-
-    
     <section id="skills" className={styles.container}>
-        <h1 className='sectionTitle'>Skills</h1>
-        <div className={styles.skillList}>
-           <SkillList src={checkMarkIcon} skill='HTML'/>
-           <SkillList src={checkMarkIcon} skill='CSS'/>
-           <SkillList src={checkMarkIcon} skill='JavaScript'/>
-           <SkillList src={checkMarkIcon} skill='TypeScript'/>
-           <SkillList src={checkMarkIcon} skill='Node.js'/>
-        </div>
-        <hr />
-        <div className={styles.skillList}>
-           <SkillList src={checkMarkIcon} skill='React'/>
-           <SkillList src={checkMarkIcon} skill='Vue'/>
-           <SkillList src={checkMarkIcon} skill='Liquid'/>
-           <SkillList src={checkMarkIcon} skill='Tailwind CSS'/>
-           <SkillList src={checkMarkIcon} skill='Storybook'/>
-           <SkillList src={checkMarkIcon} skill='jQuery'/>
-           <SkillList src={checkMarkIcon} skill='Bootstrap'/>
-        </div>
-        <hr />
-        <div className={styles.skillList}>
-           <SkillList src={checkMarkIcon} skill='Redux'/>
-           <SkillList src={checkMarkIcon} skill='Webpack'/>
-           <SkillList src={checkMarkIcon} skill='Git'/>
-           <SkillList src={checkMarkIcon} skill='Yarn'/>
-        </div>
-        <hr />
-        <div className={styles.skillList}>
-           <SkillList src={checkMarkIcon} skill='Episerver(Optimizely)'/>
-           <SkillList src={checkMarkIcon} skill='Sitecore'/>
-           <SkillList src={checkMarkIcon} skill='.Net'/>
-           <SkillList src={checkMarkIcon} skill='.Net Core'/>
-           <SkillList src={checkMarkIcon} skill='C#'/>
-           <SkillList src={checkMarkIcon} skill='SQL'/>
-           <SkillList src={checkMarkIcon} skill='SQL Server'/>
-        </div>
+      <h2 className={styles.heading}>
+        <span className={styles.kicker}>01.</span>
+        <span>Skills &amp; Technologies</span>
+        <span className={styles.headingLine} />
+      </h2>
+      <div className={styles.marquee}>
+        {SKILL_ROWS.map((row, rowIndex) => (
+          <div
+            key={rowIndex}
+            className={styles.loopSlider}
+            style={{ '--duration': row.duration, '--direction': row.direction }}
+          >
+            <div className={styles.inner}>
+              {[...row.skills, ...row.skills].map((skill, i) => (
+                <div className={styles.tag} key={`${skill}-${i}`}>
+                  <span className={styles.hash}>#</span> {skill}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+        <div className={styles.fade} />
+      </div>
     </section>
   )
 }

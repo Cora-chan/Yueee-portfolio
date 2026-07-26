@@ -1,48 +1,99 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    text-align: center;
-
-    span {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-    }
-
-    img {
-        width: 20px;        
-    }
+    padding: 32px 0;
 }
 
-.skillList {
+.heading {
     display: flex;
-    justify-content: space-evenly;
-    align-self: center;
-    flex-wrap: wrap;
-    row-gap: 40px;
-    max-width: 35ch;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(226 232 240);
+    margin: 0 0 48px;
 }
 
-hr {
-    width: 100px;
+.kicker {
+    font-family: 'Roboto Mono', monospace;
+    color: rgb(29 78 216);
+    margin-right: 8px;
+}
+
+.headingLine {
+    display: none;
+    margin-left: 16px;
+    width: 100%;
+    max-width: 300px;
     height: 1px;
-    border: none;
-    background-color: var(--text-color);
-    margin: 30px auto
+    background-color: rgb(51 65 85);
 }
 
-@media (width >= 800px) {
+.marquee {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 48px 0;
+    overflow: hidden;
+}
 
-    .skillList {
-       max-width: fit-content;
-       gap: 30px;
-    }
+.inner {
+    display: flex;
+    width: fit-content;
+    animation: loop-scroll var(--duration) linear infinite;
+    animation-direction: var(--direction);
+}
 
-    p {
-        font-size: 20px;
+@keyframes loop-scroll {
+    from {
+        transform: translateX(0);
     }
-    hr {
-        width: 300px;
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.tag {
+    display: flex;
+    align-items: center;
+    padding: 11px 24px;
+    margin-right: 24px;
+    border-radius: 8px;
+    white-space: nowrap;
+    background-color: rgb(30 41 59);
+    color: rgb(226 232 240);
+    box-shadow:
+        0 1.6px 3.2px rgb(226 232 240 / 0.08),
+        0 1.6px 8px rgb(226 232 240 / 0.1),
+        0 3.2px 24px rgb(226 232 240 / 0.12);
+}
+
+.hash {
+    color: rgb(29 78 216);
+    margin-right: 6px;
+}
+
+.fade {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgb(15 23 42) 0%,
+        transparent 15%,
+        transparent 85%,
+        rgb(15 23 42) 100%
+    );
+}
+
+@media (width >= 768px) {
+    .headingLine {
+        display: block;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .inner {
+        animation: none;
     }
 }
