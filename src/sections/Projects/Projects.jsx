@@ -1,30 +1,38 @@
 import { Link } from 'react-router-dom'
 import styles from './ProjectsStyles.module.css'
+import royalEasterShow from '../../assets/royal-easter-show.png'
+import transmedic from '../../assets/transmedic-group.png'
+import powerTrainingService from '../../assets/power-training-service.png'
+import ofevCover from '../../assets/OFEV-cover.png'
 
 const PROJECTS = [
   {
-    title: 'Recipe Finder App',
+    title: 'Royal Easter Show Website',
+    image: royalEasterShow,
     description:
-      'A recipe discovery app that suggests meals based on ingredients you already have at home, with saved favorites and shareable shopping lists.',
-    tech: ['React', 'Tailwind CSS', 'Node.js'],
+      'Front-end component development for the Royal Agricultural Society’s Royal Easter Show website, built on Optimizely with .NET integration.',
+    tech: ['Optimizely', '.NET', 'TypeScript'],
   },
   {
-    title: 'Task Manager Dashboard',
+    title: 'Transmedic Website',
+    image: transmedic,
     description:
-      'A Kanban-style task board with drag-and-drop columns, real-time sync across devices, and per-project activity history.',
-    tech: ['Vue', 'Vuex', 'Firebase'],
+      'Full-stack build of the Transmedic website — front-end implementation, 50% back-end development, and Optimizely CMS integration.',
+    tech: ['Optimizely', '.NET', 'TypeScript'],
   },
   {
-    title: 'Weather Now',
+    title: 'Power Training Service Portal',
+    image: powerTrainingService,
     description:
-      'A minimal weather forecast app using geolocation and a public weather API, with a 5-day outlook and severe-weather alerts.',
-    tech: ['JavaScript', 'REST API', 'CSS3'],
+      'End-to-end front-end architecture for Western Power’s Power Training Service Portal — course listings, shopping cart, and course detail pages.',
+    tech: ['Optimizely', 'Vue', 'Liquid', 'Tailwind CSS'],
   },
   {
-    title: 'Shared Component Library',
+    title: 'OFEV Conference Kiosk',
+    image: ofevCover,
     description:
-      'A Storybook-documented UI component library shared across multiple internal React and Vue projects, with visual regression tests.',
-    tech: ['React', 'Storybook', 'TypeScript'],
+      'A kiosk questionnaire app built for the OFEV Conference, integrating with an existing SQL-based reporting workflow — completed by 100+ attendees on the day.',
+    tech: ['Vue', 'SQL'],
   },
 ]
 
@@ -40,7 +48,11 @@ function Projects() {
         {PROJECTS.map((project) => (
           <li key={project.title} className={styles.item}>
             <div className={styles.card}>
-              <div className={styles.thumbnail} aria-hidden="true" />
+              <img
+                className={styles.thumbnail}
+                src={project.image}
+                alt={`${project.title} screenshot`}
+              />
               <div className={styles.content}>
                 <h3 className={styles.title}>{project.title}</h3>
                 <p className={styles.description}>{project.description}</p>
